@@ -1,0 +1,19 @@
+{
+  "app": {
+    "active" : true,
+    "portRun": "8001",
+    "log" : false
+  },
+
+  "serverParams": {
+    "cpu" : true,
+    "memory": true,
+    "disk": false
+  },
+
+  "services" : [
+    {"name" : "test.service", "active" : true},
+    {"name" : "test2.service", "active" : false}
+  ]
+
+}
