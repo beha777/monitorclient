@@ -1,10 +1,11 @@
-package monitorclient
+package main
 
-import "monitorclient/settings"
+import (
+	"monitorclient/routes"
+	"monitorclient/settings"
+)
 
 func main() {
 	settings.AppSettings, _ = settings.ReadSettings()
-
-
-
+	routes.Init()
 }

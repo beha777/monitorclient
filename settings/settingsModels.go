@@ -7,25 +7,43 @@ import (
 )
 
 type Settings struct {
-	AppParams    Params       `json:"app"`
-	ServerParams ServerParams `json:"serverParams"`
-	Services     []Service    `json:"services"`
+	AppParams    Params         `json:"app"`
+	BotParams    BotSettings    `json:"botParams"`
+	Hosts        []Host         `json:"hosts"`
+	ServerParams ServerSettings `json:"serverParams"`
+	Services     []Service      `json:"services"`
 }
 
 type Params struct {
-	Active  bool   `json:"active"`
-	PortRun string `json:"portRun"`
-	Log     bool   `json:"log"`
+	Active  bool    `json:"active"`
+	PortRun string  `json:"portRun"`
+	Log     bool    `json:"log"`
+	Version float64 `json:"version"`
 }
 
-type ServerParams struct {
-	Cpu    bool `json:"cpu"`
-	Memory bool `json:"memory"`
-	Disc   bool `json:"disc"`
+type BotSettings struct {
+	Url      string `json:"url"`
+	Login    string `json:"login"`
+	Password string `json:"password"`
+	UrlId    string `json:"urlId"`
+	Token    string `json:"token"`
+	ChatID   string `json:"chat_id"`
 }
+
+type Host struct {
+	Name   string `json:"name"`
+	Active bool   `json:"active"`
+}
+
 type Service struct {
 	Name   string `json:"name"`
 	Active bool   `json:"active"`
+}
+
+type ServerSettings struct {
+	DiscUsed bool `json:"discUsed"`
+	CPULoad  bool `json:"cpuLoad"`
+	MemLoad  bool `json:"memLoad"`
 }
 
 var AppSettings Settings

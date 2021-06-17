@@ -20,13 +20,13 @@ func getParams(context *gin.Context) {
 	return
 }
 
-func sendCommand (context *gin.Context) {
+func sendCommand(context *gin.Context) {
 	text := context.Query("text")
 	execResult, err := exec.Command("bash", "-c", text).Output()
 	execResultString := string(execResult)
 	if err != nil {
 		if settings.AppSettings.AppParams.Log {
-			log.Println("EXEC error!\nCommand: ", text,  "\nError: ", err.Error())
+			log.Println("EXEC error!\nCommand: ", text, "\nError: ", err.Error())
 			context.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
 			})
@@ -37,7 +37,3 @@ func sendCommand (context *gin.Context) {
 		})
 	}
 }
-
-
-
-

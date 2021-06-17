@@ -2,13 +2,28 @@
   "app": {
     "active" : true,
     "portRun": "8001",
-    "log" : false
+    "log" : false,
+    "version" : 1.0
   },
 
+  "botParams": {
+    "url" : "192.168.150.67:8088/SendMsgToBot/",
+    "login": "srv",
+    "password": "srv2021",
+    "urlId": "3",
+    "token": "1857766717:AAGOdDVdYgYbj9yFBa5imAc9sUZR1Y7ZfL8",
+    "chat_id": "@ServerParamStatus"
+  },
+
+  "hosts" : [
+    {"name" : "0.0.0.0:1234", "active" : true}
+  ],
+
+
   "serverParams": {
-    "cpu" : true,
-    "memory": true,
-    "disk": false
+    "discUsed" : true,
+    "cpuLoad": true,
+    "memLoad": false
   },
 
   "services" : [
