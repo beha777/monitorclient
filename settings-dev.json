@@ -12,23 +12,23 @@
     "password": "srv2021",
     "urlId": "3",
     "token": "1857766717:AAGOdDVdYgYbj9yFBa5imAc9sUZR1Y7ZfL8",
-    "chat_id": "@ServerParamStatus"
+    "chat_id": "@ServerParamStatus",
+    "owners": "@beha777"
   },
 
   "hosts" : [
-    {"name" : "0.0.0.0:1234", "active" : true}
+    {"name" : "192.168.88.104:1234", "check_period": 10, "notification_period": 3600, "active" : true}
   ],
 
 
-  "serverParams": {
-    "discUsed" : true,
-    "cpuLoad": true,
-    "memLoad": false
-  },
+  "serverParams": [
+    {"name": "CpuLoad",  "condition": ">", "limit": 95, "check_period": 10, "notification_period": 3600, "active": true},
+    {"name": "MemLoad",  "condition": ">", "limit": 95, "check_period": 10, "notification_period": 3600, "active": true},
+    {"name": "DiscUsed", "condition": ">", "limit": 95, "check_period": 10, "notification_period": 3600, "active": true}
+  ],
 
   "services" : [
-    {"name" : "test.service", "active" : true},
-    {"name" : "test2.service", "active" : false}
+    {"name" : "test.service", "state": "active", "check_period": 10, "notification_period": 3600, "active" : true},
+    {"name" : "test2.service", "state": "active", "check_period": 10, "notification_period": 3600, "active" : false}
   ]
-
 }

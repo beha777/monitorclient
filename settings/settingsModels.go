@@ -7,11 +7,11 @@ import (
 )
 
 type Settings struct {
-	AppParams    Params         `json:"app"`
-	BotParams    BotSettings    `json:"botParams"`
-	Hosts        []Host         `json:"hosts"`
-	ServerParams ServerSettings `json:"serverParams"`
-	Services     []Service      `json:"services"`
+	AppParams    Params        `json:"app"`
+	BotParams    BotSettings   `json:"botParams"`
+	Hosts        []Host        `json:"hosts"`
+	ServerParams []ServerParam `json:"serverParams"`
+	Services     []Service     `json:"services"`
 }
 
 type Params struct {
@@ -28,22 +28,31 @@ type BotSettings struct {
 	UrlId    string `json:"urlId"`
 	Token    string `json:"token"`
 	ChatID   string `json:"chat_id"`
+	Owners   string `json:"owners"`
 }
 
 type Host struct {
-	Name   string `json:"name"`
-	Active bool   `json:"active"`
+	Name               string `json:"name"`
+	CheckPeriod        uint   `json:"check_period"`
+	NotificationPeriod uint   `json:"notification_period"`
+	Active             bool   `json:"active"`
 }
 
 type Service struct {
-	Name   string `json:"name"`
-	Active bool   `json:"active"`
+	Name               string `json:"name"`
+	State              string `json:"state"`
+	CheckPeriod        uint   `json:"check_period"`
+	NotificationPeriod uint   `json:"notification_period"`
+	Active             bool   `json:"active"`
 }
 
-type ServerSettings struct {
-	DiscUsed bool `json:"discUsed"`
-	CPULoad  bool `json:"cpuLoad"`
-	MemLoad  bool `json:"memLoad"`
+type ServerParam struct {
+	Name               string  `json:"name"`
+	Condition          string  `json:"condition"`
+	Limit              float64 `json:"limit"`
+	CheckPeriod        uint    `json:"check_period"`
+	NotificationPeriod uint    `json:"notification_period"`
+	Active             bool    `json:"active"`
 }
 
 var AppSettings Settings
